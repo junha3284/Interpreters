@@ -1,0 +1,26 @@
+{
+	translate 4 4 4
+	file "cube"
+}
+{
+	translate 3 3 3
+	scale 3 3 1
+	file "cube"
+}
+{
+	translate 2 2 2
+	scale 5 5 1
+	file "cube"
+}
+{
+	translate 1 1 1
+	scale 7 7 1
+	file "cube"
+}
+{
+	scale 9 9 1
+	file "cube"
+}
+
+
+	

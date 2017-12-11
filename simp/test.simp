@@ -1,0 +1,14 @@
+{
+	{
+		camera  -1 -1 1 1 -0.1 -200
+	}
+	{
+		translate -10 0 -30
+		light 1, 1, 1, 1, 0
+		file "lightMarker"	
+	}
+	ambient 0 0 0 
+	translate 0 0 -100
+	scale 10 10 10
+	file "cube"
+}

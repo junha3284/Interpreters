@@ -1,0 +1,134 @@
+{
+	camera -1 -1 1 0 -0.1 -200
+	surface 0 0.5 0
+	ambient 0.5, 1, 1
+	depth 0 -200 (0 0 0)
+	translate 5 -10 0
+	rotate X 15
+	rotate Y 30
+	translate 20 -40 0
+	scale 4 1 1
+	{
+		translate 0 0 0
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 2 -20
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 4 -40
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 6 -60
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 8 -80
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 10 -100
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 12 -120
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 14 -140
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 16 -160
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 18 -180
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 20 -200
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 22 -220
+		scale 10 10 10
+		file "cube"
+	}
+
+	translate 0 -20 0 
+	rotate X 10
+	{
+		translate 0 0 0
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 2 -20
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 4 -40
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 6 -60
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 8 -80
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 10 -100
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 12 -120
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 14 -140
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 16 -160
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 18 -180
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 20 -200
+		scale 10 10 10
+		file "cube"
+	}
+	{
+		translate 0 22 -220
+		scale 10 10 10
+		file "cube"
+	}
+}

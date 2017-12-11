@@ -1,0 +1,17 @@
+{
+	ambient 0.75 1 0.75
+	{
+		translate 0 25 -32
+		camera  -1 -1 1 1 -0.1 -200
+		depth 0 -200 (0 0 0)
+	}
+	
+	{
+		translate 0 10 -100
+		scale 0.3 0.3 0.3
+		rotate X 20
+		rotate Y 45
+		obj "car"
+	}
+	
+}

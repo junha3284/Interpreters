@@ -1,0 +1,50 @@
+{
+	translate -70 -10 -120
+	rotate Z 15
+	rotate X -70
+	rotate Y 10
+	rotate Z -60
+	scale 10 10 10
+	file "pyramid"
+	{
+		translate 4.5 4.5 4
+		rotate Z 45
+		scale 2.1 2.1 2
+		file "rectangularCone"
+	}
+	{
+		translate 0.5 0.5 1
+		scale 0.5 0.5 4
+		file "circularCone"
+	}
+	{
+		translate 8.5 0.5 1
+		scale 0.5 0.5 4
+		file "circularCone"
+	}
+	{
+		translate 0.5 8.5 1
+		scale 0.5 0.5 4
+		file "circularCone"
+	}
+	{
+		translate 8.5 8.5 1
+		scale 0.5 0.5 4
+		file "circularCone"
+	}
+	{
+		translate 9 2 0
+		scale 4 4 0.5
+		file "cube"
+	}
+	{
+		translate 12.5 2.5 0.5
+		scale 0.5 0.5 3
+		file "cylinder"
+	}
+	{
+		translate 12.5 5.5 0.5
+		scale 0.5 0.5 3
+		file "cylinder"
+	}
+}
