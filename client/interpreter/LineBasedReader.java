@@ -21,7 +21,7 @@ public class LineBasedReader implements Iterator<String>  {
 	public LineBasedReader(String filename) {
 		try {
 			
-			this.reader = openFile("src/simp/"+filename);
+			this.reader = openFile("simp/"+filename);
 		}
 		catch (FileNotFoundException e) {
 			throw new IllegalArgumentException(e);
