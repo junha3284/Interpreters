@@ -82,10 +82,7 @@ class ObjReader {
 			}
 		}
 	}
-	/*
-	private Polygon polygonForFace(ObjFace face) {
-		// TODO: This function might be used in render() above.  Implement it if you find it handy.
-	}*/
+
 
 	public void read() {
 		while(reader.hasNext() ) {

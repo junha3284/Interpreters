@@ -95,9 +95,7 @@ public class SimpInterpreter implements PixelShader{
 		FLAT;
 	}
 	
-	public SimpInterpreter(String filename, 
-			Drawable drawable,
-			RendererTrio renderers) {
+	public SimpInterpreter(String filename, Drawable drawable, RendererTrio renderers) {
 		this.drawable = drawable;
 		this.depthCueingDrawable = new DepthCueingDrawable(drawable, -201, -201, Color.BLACK);
 		this.lineRenderer = renderers.getLineRenderer();
@@ -267,7 +265,6 @@ public class SimpInterpreter implements PixelShader{
 		renderStyle = RenderStyle.FILLED;
 	}
 	
-	// this one is complete.
 	private void interpretFile(String[] tokens) {
 		String quotedFilename = tokens[1];
 		int length = quotedFilename.length();
@@ -316,15 +313,14 @@ public class SimpInterpreter implements PixelShader{
 	private void objFile(String filename) {
 		ObjReader objReader = new ObjReader(filename, defaultColor);
 		objReader.read();
-		if(shaderStyle == ShaderStyle.PHONG){
-			objReader.render((v1,v2,v3)->polygon(v1,v2,v3));
-		}
-		else if(shaderStyle == ShaderStyle.FLAT){
-			objReader.render((v1,v2,v3) -> polygon(v1,v2,v3,(k)->faceshade(k)));
-		}
-		else if(shaderStyle == ShaderStyle.GOURAUD){
-			objReader.render((v1,v2,v3)->polygon(v1,v2,v3,(a,b)->vertexShade(a,b)));
-		}
+
+		switch(shaderStyle) {
+		case PHONG :	objReader.render((v1,v2,v3)->polygon(v1,v2,v3));  break;
+		case FLAT :		objReader.render((v1,v2,v3) -> polygon(v1,v2,v3,(k)->faceshade(k))); break;
+		case GOURAUD :	objReader.render((v1,v2,v3)->polygon(v1,v2,v3,(a,b)->vertexShade(a,b))); break;
+		
+		default :	System.err.println("not possible case of shader Style "); break;
+		}	
 	}
 	
 	private static double cleanNumber(String string) {
@@ -417,6 +413,7 @@ public class SimpInterpreter implements PixelShader{
 		}
 	}
 	
+	//draw polygon using phong shading	
 	private void polygon(Vertex3D p1, Vertex3D p2, Vertex3D p3) {
 		Vertex3D screenP1 = transformToCamera(p1);
 		Vertex3D screenP2 = transformToCamera(p2);
@@ -436,7 +433,8 @@ public class SimpInterpreter implements PixelShader{
 					wireframeRenderer.drawPolygon(polygon, depthCueingDrawable);
 		}
 	}
-	
+
+	//draw polygon using flat shading	
 	private void polygon(Vertex3D p1, Vertex3D p2, Vertex3D p3, FaceShader shader){
 		Vertex3D screenP1 = transformToCamera(p1);
 		Vertex3D screenP2 = transformToCamera(p2);
@@ -457,6 +455,7 @@ public class SimpInterpreter implements PixelShader{
 		}
 	}
 	
+	// draw polygon using gouraud shading	
 	private void polygon(Vertex3D p1, Vertex3D p2, Vertex3D p3, VertexShader shader){
 		Vertex3D screenP1 = transformToCamera(p1);
 		Vertex3D screenP2 = transformToCamera(p2);
@@ -483,6 +482,8 @@ public class SimpInterpreter implements PixelShader{
 		}
 	}
 	
+	// If current vertex has a normal vector, calculate color with using it and create new vertex with that calculated color
+	// Otherwise, calculate face normal and use it instead of the current vertex's normal vector	
 	private Vertex3D vertexShade(Polygon p, Vertex3D current){
 		Point3DH n = new Point3DH(0,0,0);
 		boolean check = false;
@@ -517,6 +518,7 @@ public class SimpInterpreter implements PixelShader{
 		return new Vertex3D(current.getPoint3D(),n,lighted_color);
 	}
 	
+	// using face vector as normal for each vertexs and calcualte and assign new colors to each vertex in polygon and return it	
 	private Polygon faceshade(Polygon po){
 		Point3DH n = new Point3DH(0,0,0);
 		boolean check = false;
@@ -585,7 +587,7 @@ public class SimpInterpreter implements PixelShader{
 		return temp;
 	}
 	
-
+	// calculate normal vector for phong shading
 	@Override
 	public Color shade(Polygon polygon, Vertex3D current) {
 		boolean check = true;
